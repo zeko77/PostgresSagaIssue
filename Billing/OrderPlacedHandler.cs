@@ -25,7 +25,7 @@ namespace Billing
         public async Task Handle(ExecuteStepOne message, IMessageHandlerContext context)
         {
             log.Info($"Step one {message.SagaId}");
-            await context.Publish(new StepOneExecuted { ShittingSessionId = message.SagaId });
+            await context.Publish(new StepOneExecuted { SagaId = message.SagaId });
         }
     }
 
@@ -35,8 +35,8 @@ namespace Billing
 
         public async Task Handle(ExecuteStepTwo message, IMessageHandlerContext context)
         {
-            log.Info($"Step two {message.ShittingSessionId}");
-            await context.Publish(new StepTwoExecuted { ShittingSessionId = message.ShittingSessionId });
+            log.Info($"Step two {message.SagaId}");
+            await context.Publish(new StepTwoExecuted { SagaId = message.SagaId });
         }
     }
 
@@ -46,7 +46,7 @@ namespace Billing
 
         public async Task Handle(LastStep message, IMessageHandlerContext context)
         {
-            log.Info($"Gone!!! {message.ShittingSessionId}");
+            log.Info($"Gone!!! {message.SagaId}");
         }
     }
 }

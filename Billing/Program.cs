@@ -49,8 +49,8 @@ namespace Billing
 
 
                            InitializeTransport(context.Configuration, endpointConfiguration);
-                           InitializePostgreSQLPersistence(context.Configuration, endpointConfiguration, serializationSettings);
-                           //InitializeMySQLPersistence(context.Configuration, endpointConfiguration, serializationSettings);
+                           //InitializePostgreSQLPersistence(context.Configuration, endpointConfiguration, serializationSettings);
+                           InitializeMySQLPersistence(context.Configuration, endpointConfiguration, serializationSettings);
 
                            endpointConfiguration.SendFailedMessagesTo("error");
                            endpointConfiguration.AuditProcessedMessagesTo("audit");

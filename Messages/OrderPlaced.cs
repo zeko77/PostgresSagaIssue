@@ -9,11 +9,11 @@ namespace Messages
 
     public class StepOneExecuted : IEvent
     {
-        public string ShittingSessionId { get; set; }
+        public string SagaId { get; set; }
     }
 
     public class StepTwoExecuted : IEvent
     {
-        public string ShittingSessionId { get; set; }
+        public string SagaId { get; set; }
     }
 }

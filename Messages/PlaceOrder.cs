@@ -19,11 +19,11 @@ namespace Messages
 
     public class ExecuteStepTwo : ICommand
     {
-        public string ShittingSessionId { get; set; }
+        public string SagaId { get; set; }
     }
 
     public class LastStep : ICommand
     {
-        public string ShittingSessionId { get; set; }
+        public string SagaId { get; set; }
     }
 }

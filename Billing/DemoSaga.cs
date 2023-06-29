@@ -31,7 +31,7 @@ namespace Billing
             Data.Status = "Done with one";
             await context.Send(new ExecuteStepTwo
             {
-                ShittingSessionId = msg.ShittingSessionId
+                SagaId = msg.SagaId
             });
         }
 
@@ -40,7 +40,7 @@ namespace Billing
             Data.Status = "Done with two";
             await context.Send(new LastStep
             {
-                ShittingSessionId = msg.ShittingSessionId               
+                SagaId = msg.SagaId               
             });
             MarkAsComplete();
         }
@@ -49,8 +49,8 @@ namespace Billing
         {
             mapper.MapSaga(saga => saga.SagaId)
                 .ToMessage<StartDemoSaga>(message => message.SagaId)
-                .ToMessage<StepOneExecuted>(message => message.ShittingSessionId)
-                .ToMessage<StepTwoExecuted>(message => message.ShittingSessionId);
+                .ToMessage<StepOneExecuted>(message => message.SagaId)
+                .ToMessage<StepTwoExecuted>(message => message.SagaId);
         }
     }
 
